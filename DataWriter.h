@@ -15,7 +15,7 @@ class DataWriter {
   DataWriter (){
   }
 
-  void write(vector<vector<int>> input){
+  void write(vector<vector<int>> input, string outputFile){
     string temp ="";
     for(auto v : input){
       temp += to_string(v.size());
@@ -24,7 +24,7 @@ class DataWriter {
       }
       temp += "\n";
     }
-    ofstream saveFile ("output.txt");
+    ofstream saveFile (outputFile);
     saveFile << temp;
     saveFile.close();
   }

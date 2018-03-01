@@ -6,15 +6,16 @@ using std::vector;
 #include "Ride.h"
 #include "Vehicle.h"
 #include "DataParser.h"
+#include "DataWriter.h"
 #include "Map.h"
 
 // get map specificatios form vishnus class
 
 
 
-int main() {
+void solve(string fileName, string outputName) {
 
-  string fileName = "e_high_bonus.in";
+  
   DataParser parser(fileName);
   
   vector<Ride> rides = parser.getRides();
@@ -25,23 +26,46 @@ int main() {
   Map map(rides);
 
   Ride curr;
-  
-  for(int time = 0; time < maxTime; time++){
+  vector<vector<int>> output(data[2], vector<int>());
 
+  
+  int i ;
+  for(int time = 0; time < maxTime; time++){
+    
+    i = 0;
     for(Vehicle v:vehicles)
     {
+        
         if(v.isAvailable(time))
-        {  
+        { 
             curr = map.closestStart(v,time);
             if(curr.getStartTime() == -1)
             {
                 time = maxTime;
                 break;
             }
-            v.move(curr, time);          
+            v.move(curr, time);  
+            output[i].push_back(curr.getIdentifier());        
         }
+        i++;
     }
   }
   
-  return 0;
+  DataWriter writer;
+  writer.write(output,outputName);
+  
+}
+
+int main()
+{
+    solve("a_example.in", "A_output.txt");
+    cout<<"A"<<endl;
+    solve("b_should_be_easy.in", "B_output.txt");
+        cout<<"A"<<endl;
+    solve("c_no_hurry.in", "C_output.txt");
+        cout<<"A"<<endl;
+    solve("d_metropolis.in", "D_output.txt");
+        cout<<"A"<<endl;
+    solve("e_high_bonus.in", "E_output.txt");
+        cout<<"A"<<endl;
 }
