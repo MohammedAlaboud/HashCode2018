@@ -13,11 +13,13 @@ private:
   int startTime;
   int endTime;
 
+  bool compleated;
+
 
 public:
   Ride (Coordinate start, Coordinate end,int startTime,int endTime):
         start(start),end(end),startTime(startTime),endTime(endTime){
-    //hi
+          compleated = false;
   }
 
   Coordinate getStart(){
@@ -33,6 +35,10 @@ public:
   }
   int getEndTime(){
     return endTime;
+  }
+
+  bool isCompleat(){
+    return compleated;
   }
 
 
