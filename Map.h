@@ -44,6 +44,10 @@ public:
     
     Ride closestStart(Vehicle v, int time){
         
+        if(rides.size() == 0)
+        {
+            return Ride();
+        }
         auto closest = rides.begin();
         int closestSteps = -1;
         int rSteps = 0;
@@ -55,6 +59,7 @@ public:
         
             rSteps = steps(loc, r->getStart());
             
+            
             if(time+rSteps >= r->getStartTime() && (rSteps < closestSteps ||closestSteps == -1) ){
         
                 if(!(r->inProgress())){
@@ -62,9 +67,11 @@ public:
                     closestSteps = rSteps;
                 }
             }
+            
+            r++;
         }
         
-        Ride ret = *closest;
+        Ride ret = *closest;        
         rides.erase(closest);
         return ret;
     }

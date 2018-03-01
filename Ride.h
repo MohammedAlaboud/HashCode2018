@@ -25,6 +25,9 @@ public:
         inPorgress = false;
     }
 
+    Ride():startTime(-1) 
+    {}
+    
     Coordinate getStart(){
         return start;
     }
