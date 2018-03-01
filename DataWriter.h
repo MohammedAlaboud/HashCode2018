@@ -7,29 +7,28 @@ class DataWriter;
 #include <fstream>
 #include <string>
 #include <cstdio>
+#include "Ride.h"
+
+using namespace std;
 
 class DataWriter {
-private:
-  /* data */
-
-public:
   DataWriter (){
   }
 
   void write(vector<vector<int>> input){
     string temp ="";
     for(auto vhicle : input){
-      temp += itos(vhicle.size());
+      temp += to_string(vhicle.size());
       for(auto ride : vhicle){
-        temp += +" " + itos(ride.getIdentifier());
+        temp += +" " + to_string(ride.getIdentifier());
       }
       temp += "/n"
     }
-    ofstream saveFile("output.txt");
+    ofstream saveFile ("output.txt");
     saveFile << temp;
     saveFile.close();
   }
-  
+
   ~DataWriter (){
 
   }
