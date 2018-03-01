@@ -1,22 +1,21 @@
 #ifndef __VEHICLE_H_INCLUDED__
 #define __VEHICLE_H_INCLUDED__
 
-class Vhicle;
-
 #include "Coordinate.h"
 #include "Ride.h"
+
 class Vehicle {
 private:
   Coordinate location;
   int timeAvalable;
 
 public:
-  Vehicle ():location(){
-    location = new coordinate(0,0);
+  Vehicle(){
+    location = Coordinate(0,0);
     timeAvalable = -1;
   }
 
-  bool isAvalable(int timeStamp){
+  bool isAvailable(int timeStamp){
     return timeStamp > timeAvalable;
   }
 
@@ -25,9 +24,10 @@ public:
     setLoc(ride.getEnd());
   }
 
-  getLoc(){
+  Coordinate getLocation(){
     return location;
   }
+  
   void setLoc(Coordinate loc){
     location = loc;
   }

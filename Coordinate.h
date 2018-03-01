@@ -7,6 +7,11 @@ private:
   int x;
   int y;
 public:
+
+  Coordinate(){
+    x = 0;
+    y = 0;
+  }
   Coordinate (int x, int y):x(x),y(y){
     //Hi
   }

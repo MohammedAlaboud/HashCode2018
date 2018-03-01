@@ -9,7 +9,7 @@ class DataParser;
 #include <iostream>
 #include <string>
 #include <vector>
-
+using namespace std;
 #include "Ride.h"
 #include "Coordinate.h"
 
@@ -21,7 +21,7 @@ class DataParser{
 
     public:
 
-    DataParser(string fileName)
+    DataParser(string fileName) 
     {
         ifstream inFile(fileName);
         string oneLine;
@@ -118,18 +118,6 @@ class DataParser{
     }
 };
 
-int main (){
 
-    string file = "a_example.in";
-
-    DataParser parser(file);
-
-        vector<Ride> rides= parser.getRides();
-        for(Ride r:rides)
-        {
-            cout<<r.getStart().getX()<<" "<<r.getStart().getY()<<" "<<r.getEnd().getX()<<" "<<r.getEnd().getX()<<" ";
-            cout<<r.getStartTime()<<" "<<r.getEndTime()<<endl;;
-        }
-}
 
 #endif

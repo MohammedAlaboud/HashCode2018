@@ -3,7 +3,9 @@
 
 #include <vector>
 #include <iostream>
-#include coordinate.h
+#include "Coordinate.h"
+#include "Ride.h"
+#include "Vehicle.h"
 #include <cmath>
 
 using std::vector;
@@ -11,38 +13,26 @@ using std::abs;
 
 // TODO: your code goes here
 
-class MapOfItems {
+class Map {
     
 private:
 
-    int time = 0;
     vector<Ride> rides;
-    vector<Vehicle> vehicles;
     
 public:
     
-    vector<Ride> getRides(){
-        return rides;
-    }
-    vector<Vehicles> getVehicles(){
-        return Vehicles;
+    Map(vector<Ride> ridesIn)
+    {
+        rides = ridesIn;
     }
     
-    void addRide(const Ride r){
-        rides.push_back(r);
-    }
-    
-    void addVehicle(const Vehicle v){
-        vehicles.push_back(v);
-    }
-    
-    int steps(Coordinates start, Coordinates end){
+    int steps(Coordinate start, Coordinate end){
         
         int ySteps = 0;
         int xSteps = 0;
         
-        ySteps = abs(end.get(y) - start.get(y));
-        xSteps = abs(end.get(x) - start.get(x));
+        ySteps = abs(end.getY() - start.getY());
+        xSteps = abs(end.getX() - start.getX());
         
         int totalSteps = 0;
         
@@ -52,24 +42,27 @@ public:
     }
     
     
-    Coordinate closestStart(Vehicle v){
+    Coordinate closestStart(Vehicle v, int time){
         
         Ride closest = rides[0];
         int closestSteps = -1;
         int rSteps = 0;
+        Coordinate loc = v.getLocation();
         
-        for(int i = 0; i < rides.size){
-            rSteps =steps(v.getLoc, rides[i].getStart)
-            if(time+rsteps >= rides[i].getStartTime() && (rSteps < closest ||closestSteps = -1) ){
+        for(int i = 0; i < rides.size(); i++){
         
-                if(!(rides[i].inProgress)){
+            rSteps = steps(loc, rides[i].getStart());
+            
+            if(time+rSteps >= rides[i].getStartTime() && (rSteps < closestSteps ||closestSteps == -1) ){
+        
+                if(!(rides[i].inProgress())){
                     closest = rides[i];
                     closestSteps = rSteps;
                 }
             }
         }
         
-        return closest;
+        return closest.getStart();
     }
     
 };
