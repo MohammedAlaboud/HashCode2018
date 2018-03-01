@@ -52,16 +52,20 @@ public:
     }
     
     
-    Coordinate closestStart(Vehicle v, rides){
+    Coordinate closestStart(Vehicle v){
         
-        closest = rides[0];
+        Ride closest = rides[0];
+        int closestSteps = -1;
+        int rSteps = 0;
         
         for(int i = 0; i < rides.size){
-            
-            if(steps(v.getLoc, rides[i].getStart) < closest){
-                
-                closest = rides[i];
-                
+            rSteps =steps(v.getLoc, rides[i].getStart)
+            if(time+rsteps >= rides[i].getStartTime() && (rSteps < closest ||closestSteps = -1) ){
+        
+                if(!(rides[i].inProgress)){
+                    closest = rides[i];
+                    closestSteps = rSteps;
+                }
             }
         }
         
