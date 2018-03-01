@@ -24,12 +24,22 @@ int main() {
   vector<Vehicle> vehicles(data[2]);
   Map map(rides);
 
+  Ride curr;
   
   for(int time = 0; time < maxTime; time++){
+    cout<<time<<"A" <<endl;
     for(Vehicle v:vehicles)
     {
+        cout<<"v"<<endl;
         if(v.isAvailable(time))
-        {               
+        {  
+            curr = map.closestStart(v,time);
+            if(curr.getStartTime() == -1)
+            {
+                time = maxTime;
+                break;
+            }
+            v.move(curr, time);          
         }
     }
   }
