@@ -15,6 +15,9 @@ public:
   getLoc(){
     return location;
   }
+  void setLoc(Coordinate loc){
+    location = loc;
+  }
   ~Vehicle (){
     //bye
   }

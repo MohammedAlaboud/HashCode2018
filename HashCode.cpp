@@ -7,14 +7,20 @@
 // get map specificatios form vishnus class
 
 private:
-  Map mainMap;
+  Map mainMap
+  int maxTime;
+  int currntTime;
 public:
 
 int main() {
+  for(currntTime = 0; currntTime < maxTime;currntTime++){
 
-  for(auto ride : mainMap.getRides()){
+
+
+
+
+
 
   }
-
   return 0;
 }
