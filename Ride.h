@@ -10,19 +10,19 @@ using std::abs;
 
 class Ride {
 private:
+  int identifier;
+  Coordinate start;
+  Coordinate end;
+  int startTime;
+  int endTime;
 
-    Coordinate start;
-    Coordinate end;
-    int startTime;
-    int endTime;
-
-    bool compleated;
-    bool inPorgress;
+  bool compleated;
+  bool inPorgress;
 
 
 public:
-    Ride (Coordinate start, Coordinate end, int startTime, int endTime):
-    start(start),end(end),startTime(startTime),endTime(endTime){
+    Ride (Coordinate start, Coordinate end, int startTime, int endTime, int identifier):
+    start(start),end(end),startTime(startTime),endTime(endTime),identifier(identifier){
         compleated = false;
         inPorgress = false;
     }
