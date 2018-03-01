@@ -20,6 +20,8 @@ public:
     string temp ="";
     for(auto vhicle : input){
       temp += itos(vhicle.size());
+      for(auto ride )
+      temp += "/n"
     }
   }
   ~DataWriter (){

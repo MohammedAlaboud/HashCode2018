@@ -4,59 +4,76 @@
 class Ride;
 
 #include "Coordinate.h"
+#include <cmath>
+
+using std::abs;
 
 class Ride {
 private:
 
-  int identifier;
+    Coordinate start;
+    Coordinate end;
+    int startTime;
+    int endTime;
 
-  Coordinate start;
-  Coordinate end;
-  int startTime;
-  int endTime;
-
-  bool compleated;
-  bool inPorgress;
+    bool compleated;
+    bool inPorgress;
 
 
 public:
-  Ride (Coordinate start, Coordinate end,int startTime,int endTime,int identifier):
-        start(start),end(end),startTime(startTime),endTime(endTime),identifier(identifier){
-          compleated = false;
-          inPorgress = false;
-  }
+    Ride (Coordinate start, Coordinate end, int startTime, int endTime):
+    start(start),end(end),startTime(startTime),endTime(endTime){
+        compleated = false;
+        inPorgress = false;
+    }
 
-  Coordinate getStart(){
-    return start;
-  }
+    Coordinate getStart(){
+        return start;
+    }
 
-  Coordinate getEnd(){
-    return end;
-  }
+    Coordinate getEnd(){
+        return end;
+    }
 
-  int getStartTime(){
-    return startTime;
-  }
-  int getEndTime(){
-    return endTime;
-  }
+    int getStartTime(){
+        return startTime;
+    }
+    int getEndTime(){
+        return endTime;
+    }
 
-  bool isCompleat(){
-    return compleated;
-  }
+    bool isComplete(){
+        return compleated;
+    }
 
-  void startRide(){
-    inPorgress = true;
-  }
+    void startRide(){
+        inPorgress = true;
+    }
 
-  bool inProgress(){
-    return inPorgress;
-  }
+    bool inProgress(){
+        return inPorgress;
+    }
+
+    int rideSteps(){
+
+        int ySteps = 0;
+        int xSteps = 0;
+
+        ySteps = abs(end.get(y) - start.get(y));
+        xSteps = abs(end.get(x) - start.get(x));
+
+        int totalSteps = 0;
+
+        totalSteps = ySteps + xSteps;
+
+        return totalSteps;
+
+    }
 
 
-  ~Ride (){
-    //hi
-  }
+    ~Ride (){
+        //hi
+    }
 };
 
 #endif
