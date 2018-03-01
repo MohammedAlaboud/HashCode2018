@@ -1,7 +1,5 @@
-#ifndef __DATAWRITER_H_INCLUDED__
+#ifndef __DARAWRITER_H_INCLUDED__
 #define __DATAWRITER_H_INCLUDED__
-
-class DataWriter;
 
 #include <vector>
 #include <fstream>
@@ -19,12 +17,12 @@ class DataWriter {
 
   void write(vector<vector<int>> input){
     string temp ="";
-    for(auto vhicle : input){
-      temp += to_string(vhicle.size());
-      for(auto ride : vhicle){
-        temp += +" " + to_string(ride);
+    for(auto v : input){
+      temp += to_string(v.size());
+      for(auto r : v){
+        temp += +" " + to_string(r);
       }
-      temp += "/n";
+      temp += "\n";
     }
     ofstream saveFile ("output.txt");
     saveFile << temp;
@@ -36,11 +34,11 @@ class DataWriter {
   }
 };
 
-int main()
-{
-    vector<vector<int>> test(5, vector<int>(5));
-    DataWriter writer;
-    writer.write(test);
-}
-
 #endif
+
+// int main()
+// {
+//     vector<vector<int>> test{{0,1,2},{3}};
+//     DataWriter writer;
+//     writer.write(test);
+// }
