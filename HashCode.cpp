@@ -15,12 +15,6 @@ public:
 int main() {
   for(currntTime = 0; currntTime < maxTime;currntTime++){
 
-
-
-
-
-
-
   }
   return 0;
 }
