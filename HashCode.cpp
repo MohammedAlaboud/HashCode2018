@@ -1,7 +1,8 @@
 #include <cstdio>
 #include <string>
-#include "map.h"
-
+#include "Map.h"
+#include "Ride.h"
+#include ""
 
 // get map specificatios form vishnus class
 
@@ -10,6 +11,10 @@ private:
 public:
 
 int main() {
+
+  for(auto ride : mainMap.getRides()){
+
+  }
 
   return 0;
 }
