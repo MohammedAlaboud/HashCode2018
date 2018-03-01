@@ -42,27 +42,31 @@ public:
     }
     
     
-    Coordinate closestStart(Vehicle v, int time){
+    Ride closestStart(Vehicle v, int time){
         
-        Ride closest = rides[0];
+        auto closest = rides.begin();
         int closestSteps = -1;
         int rSteps = 0;
         Coordinate loc = v.getLocation();
         
-        for(int i = 0; i < rides.size(); i++){
+        auto r = rides.begin();
+        auto end = rides.end();
+        while(r != end){
         
-            rSteps = steps(loc, rides[i].getStart());
+            rSteps = steps(loc, r->getStart());
             
-            if(time+rSteps >= rides[i].getStartTime() && (rSteps < closestSteps ||closestSteps == -1) ){
+            if(time+rSteps >= r->getStartTime() && (rSteps < closestSteps ||closestSteps == -1) ){
         
-                if(!(rides[i].inProgress())){
-                    closest = rides[i];
+                if(!(r->inProgress())){
+                    closest = r;
                     closestSteps = rSteps;
                 }
             }
         }
         
-        return closest.getStart();
+        Ride ret = *closest;
+        rides.erase(closest);
+        return ret;
     }
     
 };

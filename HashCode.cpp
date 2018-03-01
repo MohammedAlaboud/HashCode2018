@@ -26,10 +26,12 @@ int main() {
 
   
   for(int time = 0; time < maxTime; time++){
+    cout<<time<<endl;
     for(Vehicle v:vehicles)
     {
         if(v.isAvailable(time))
-        {               
+        {  
+            v.move(map.closestStart(v,time), time);          
         }
     }
   }

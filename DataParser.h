@@ -67,7 +67,8 @@ class DataParser{
         int y;
         int s;
         int f;
-
+        int i = 0;
+        
         rides = vector<Ride>();
 
         while(inFile)
@@ -101,7 +102,7 @@ class DataParser{
             spacePos = oneLine.find_first_of(' ',spacePos+1);
             f = stoi(oneLine.substr(oldPos,spacePos));
 
-            rides.push_back(Ride(Coordinate(a,b),Coordinate(x,y),s,f));
+            rides.push_back(Ride(Coordinate(a,b),Coordinate(x,y),s,f,i++));
         }
 
         inFile.close();
