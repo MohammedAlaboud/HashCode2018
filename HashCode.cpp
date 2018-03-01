@@ -1,8 +1,15 @@
 #include <cstdio>
 #include <string>
-#include "Ride.h"
-#include "Vehicle.h"
 #include "map.h"
 
 
-// get
+// get map specificatios form vishnus class
+
+private:
+  Map mainMap;
+public:
+
+int main() {
+
+  return 0;
+}
