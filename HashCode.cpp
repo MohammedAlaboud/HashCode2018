@@ -14,7 +14,7 @@ using std::vector;
 
 int main() {
 
-  string fileName = "a_example.in";
+  string fileName = "e_high_bonus.in";
   DataParser parser(fileName);
   
   vector<Ride> rides = parser.getRides();
@@ -27,10 +27,9 @@ int main() {
   Ride curr;
   
   for(int time = 0; time < maxTime; time++){
-    cout<<time<<"A" <<endl;
+
     for(Vehicle v:vehicles)
     {
-        cout<<"v"<<endl;
         if(v.isAvailable(time))
         {  
             curr = map.closestStart(v,time);

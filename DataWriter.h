@@ -12,6 +12,8 @@ class DataWriter;
 using namespace std;
 
 class DataWriter {
+
+  public:
   DataWriter (){
   }
 
@@ -20,9 +22,9 @@ class DataWriter {
     for(auto vhicle : input){
       temp += to_string(vhicle.size());
       for(auto ride : vhicle){
-        temp += +" " + to_string(ride.getIdentifier());
+        temp += +" " + to_string(ride);
       }
-      temp += "/n"
+      temp += "/n";
     }
     ofstream saveFile ("output.txt");
     saveFile << temp;
@@ -33,5 +35,12 @@ class DataWriter {
 
   }
 };
+
+int main()
+{
+    vector<vector<int>> test(5, vector<int>(5));
+    DataWriter writer;
+    writer.write(test);
+}
 
 #endif
