@@ -8,6 +8,8 @@ class Ride;
 class Ride {
 private:
 
+  int identifier;
+
   Coordinate start;
   Coordinate end;
   int startTime;
@@ -18,8 +20,8 @@ private:
 
 
 public:
-  Ride (Coordinate start, Coordinate end,int startTime,int endTime):
-        start(start),end(end),startTime(startTime),endTime(endTime){
+  Ride (Coordinate start, Coordinate end,int startTime,int endTime,int identifier):
+        start(start),end(end),startTime(startTime),endTime(endTime),identifier(identifier){
           compleated = false;
           inPorgress = false;
   }
