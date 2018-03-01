@@ -3,13 +3,42 @@
 
 class Ride;
 
+#include "Coordinate.h"
+
 class Ride {
 private:
-  /* data */
+
+  Coordinate start;
+  Coordinate end;
+  int startTime;
+  int endTime;
+
 
 public:
-  Ride ();
-  ~Ride ();
+  Ride (Coordinate start, Coordinate end,int startTime,int endTime):
+        start(start),end(end),startTime(startTime),endTime(endTime){
+    //hi
+  }
+
+  Coordinate getStart(){
+    return start;
+  }
+
+  Coordinate getEnd(){
+    return end;
+  }
+
+  int getStartTime(){
+    return startTime;
+  }
+  int getEndTime(){
+    return endTime;
+  }
+
+
+  ~Ride (){
+    //hi
+  }
 };
 
 #endif
