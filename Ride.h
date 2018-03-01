@@ -54,6 +54,10 @@ public:
         return inPorgress;
     }
 
+    int getIdentifier(){
+      return identifier;
+    }
+
     int rideSteps(){
 
         int ySteps = 0;
@@ -65,7 +69,7 @@ public:
         int totalSteps = 0;
 
         totalSteps = ySteps + xSteps;
-
+        
         return totalSteps;
 
     }
