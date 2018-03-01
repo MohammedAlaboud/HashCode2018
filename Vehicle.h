@@ -9,8 +9,8 @@ class Vehicle {
 private:
   Coordinate location;
 public:
-  Vehicle (Coordinate location):location(location){
-    //hi
+  Vehicle ():location(){
+    location = new coordinate(0,0)
   }
   getLoc(){
     return location;
