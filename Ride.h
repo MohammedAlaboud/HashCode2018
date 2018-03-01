@@ -42,7 +42,7 @@ public:
         return endTime;
     }
     
-    bool isCompleat(){
+    bool isComplete(){
         return compleated;
     }
     
